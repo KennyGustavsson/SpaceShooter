@@ -16,13 +16,16 @@ namespace SS {
         [NonSerialized] public bool booster;
         [NonSerialized] public bool isBoosting;
 
-        public Rigidbody2D rb;
+        [NonSerialized]public Rigidbody2D rb;
+
+        private Animator _animator;
         private float _initialDrag;
         private float _forwardSpeed;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            _animator = transform.GetChild(0).GetComponent<Animator>();
             _initialDrag = rb.drag;
         }
 
@@ -42,6 +45,22 @@ namespace SS {
             //Moveforward
             if (vertical > 0) MoveForward();
             else rb.drag = _drag;
+
+            if (rotation < 0)
+            {
+                _animator.SetBool("TurnRight", true);
+                _animator.SetBool("TurnLeft", false);
+            }
+            else if (rotation > 0)
+            {
+                _animator.SetBool("TurnRight", false);
+                _animator.SetBool("TurnLeft", true);
+            }
+            else
+            {
+                _animator.SetBool("TurnRight", false);
+                _animator.SetBool("TurnLeft", false);
+            }
         }
 
         private void MoveForward()
