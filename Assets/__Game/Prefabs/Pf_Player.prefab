@@ -579,6 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcd501c53d9b6a4b9b97b45e7863284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: {fileID: 0}
 --- !u!114 &359777452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,7 +860,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10589772e6294644bbecb4d283edcea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetList:
-  - {fileID: 0}
-  movingList:
-  - {fileID: 0}
+  planetList: [{fileID: 0}]
+  movingList: [{fileID: 0}]
