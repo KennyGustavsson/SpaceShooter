@@ -18,11 +18,20 @@ public class GravityAffect : MonoBehaviour
     [Tooltip("How far the preview line will reach")]
     int previewLineMaxPoints;
     [SerializeField] private float segScale;
+    bool isPlayer = false;
+    SS.Player player;
+    [SerializeField] bool debugGravityOff = false;
 
     private void Awake()
     {
-        lr.positionCount = previewLineMaxPoints = PlanetManager.SimulationPoints;
+        previewLineMaxPoints = PlanetManager.SimulationPoints;
         rb.AddForce(transform.up * startForce * rb.mass, ForceMode2D.Impulse);
+        if(transform.tag == "Player")
+        {
+            lr.positionCount = previewLineMaxPoints;
+            isPlayer = true;
+            player = GetComponent<SS.Player>();
+        }
     }
 
     private void FixedUpdate()
@@ -45,8 +54,10 @@ public class GravityAffect : MonoBehaviour
                 }
             }
         }
-        rb.AddForce(currentGravity * slowDown * rb.mass, ForceMode2D.Impulse);
-        VisualizeTrajectory();
+        if(!debugGravityOff)
+            rb.AddForce(currentGravity * slowDown * rb.mass, ForceMode2D.Impulse);
+        if(isPlayer)
+            VisualizeTrajectory();
     }
 
     void VisualizeTrajectory()
@@ -55,7 +66,7 @@ public class GravityAffect : MonoBehaviour
         
         Vector2[] segments = new Vector2[previewLineMaxPoints];
 
-        Vector2 currentVelocity = rb.velocity * Time.fixedDeltaTime;
+        Vector2 bulletInitialVelocity = transform.up * player.projectileSpeed * Time.fixedDeltaTime;
 
         segments[0] = transform.position;
 
@@ -82,13 +93,13 @@ public class GravityAffect : MonoBehaviour
                 }
             }
 
-            currentVelocity += gravity * Time.fixedDeltaTime * slowDown;
+            bulletInitialVelocity += gravity * Time.fixedDeltaTime * slowDown;
 
-            segments[i] = segments[i - 1] + currentVelocity;
-            RaycastHit2D hit = Physics2D.Raycast(segments[i-1], currentVelocity, currentVelocity.magnitude);
+            segments[i] = segments[i - 1] + bulletInitialVelocity;
+            RaycastHit2D hit = Physics2D.Raycast(segments[i-1], bulletInitialVelocity, bulletInitialVelocity.magnitude);
             if(hit.collider != null)
             {
-                if (hit.collider.transform.tag == "MovingBody" || hit.collider.transform.tag == "Planet")
+                if (hit.collider.transform.tag == "MovingBody" || hit.collider.transform.tag == "Planet" || hit.collider.transform.tag == "Enemy")
                 {
                     lr.startColor = Color.red;
                     lr.endColor = Color.red;
