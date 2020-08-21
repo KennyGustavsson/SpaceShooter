@@ -8,7 +8,8 @@ namespace SS
         {
             Projectile,
             HoomingProjectile,
-            Raygun
+            Raygun,
+            Missle
         }
         public weapon pickWeapon;
 

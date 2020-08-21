@@ -25,6 +25,7 @@ namespace SS
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if (collision.gameObject.layer == 10 && gameObject.layer == 8) return;
             if (collision.relativeVelocity.magnitude > 5) HealthChange(-(int)collision.relativeVelocity.magnitude);
         }
 

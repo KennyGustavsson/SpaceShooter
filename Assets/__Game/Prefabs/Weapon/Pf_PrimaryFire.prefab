@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2007254350782363770}
   - component: {fileID: -2515255525958498532}
   - component: {fileID: 4712846536323557264}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pf_PrimaryFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

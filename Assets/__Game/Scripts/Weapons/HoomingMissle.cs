@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SS {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class HoomingProjectile : MonoBehaviour
+    public class HoomingMissle : MonoBehaviour
     {
         public float hoomingRadius = 20f;
         public float rocketSpeed = 5f;
@@ -15,12 +15,10 @@ namespace SS {
         private bool _exploded;
         private float _distance;
         private float forwardSpeed;
-        private ObjectPool _objPool;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
-            _objPool = GetComponentInParent<ObjectPool>();
         }
 
         private void OnEnable()
@@ -56,20 +54,6 @@ namespace SS {
              forwardSpeed = Mathf.MoveTowards(forwardSpeed, rocketSpeed, rocketAcceleration * Time.fixedDeltaTime);
             _rb.AddForce(transform.up * forwardSpeed);
         }
-
-#if UNITY_EDITOR
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = new Color(1, 0, 0, .1f);
-            Gizmos.DrawSphere(transform.position, hoomingRadius);
-
-            Gizmos.color = Color.yellow;
-            if (_target != null)  Gizmos.DrawLine(transform.position, _target.position);
-
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(transform.position, transform.position + transform.up);
-        }
-#endif
 
         private void FaceTarget()
         {   

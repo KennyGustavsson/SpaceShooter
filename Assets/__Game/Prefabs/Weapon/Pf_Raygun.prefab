@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2218374472506447906}
   - component: {fileID: -1036985051817021495}
   - component: {fileID: -2896680358054477950}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pf_Raygun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
