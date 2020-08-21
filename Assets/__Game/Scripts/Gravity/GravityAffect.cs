@@ -71,35 +71,49 @@ public class GravityAffect : MonoBehaviour
         segments[0] = transform.position;
 
         for (int i = 1; i < previewLineMaxPoints; i++)
-        { 
-            Vector2 gravity = Vector2.zero;
-            if (PlanetManager.singleton != null && PlanetManager.singleton.planetList.Count > 0)
+        {
+            if (collisionCourse)
             {
-                foreach (var planet in PlanetManager.singleton.planetList)
-                {
-                    if (planet.gameObject != this.gameObject)
-                        gravity += planet.GetGravity(segments[i - 1], rb.mass);
-                }
+                segments[i] = segments[i - 1];
             }
-
-            if (PlanetManager.singleton != null && PlanetManager.singleton.movingList.Count > 0)
+            else
             {
-                foreach (MovingBody movingBody in PlanetManager.singleton.movingList)
+                Vector2 gravity = Vector2.zero;
+                if (PlanetManager.singleton != null && PlanetManager.singleton.planetList.Count > 0)
                 {
-                    if (movingBody.gameObject != this.gameObject)
+                    foreach (var planet in PlanetManager.singleton.planetList)
                     {
-                        gravity += movingBody.GetGravity(segments[i-1], rb.mass, i);
+                        if (planet.gameObject != this.gameObject)
+                            gravity += planet.GetGravity(segments[i - 1], rb.mass);
                     }
                 }
-            }
 
-            bulletInitialVelocity += gravity * Time.fixedDeltaTime * slowDown;
+                if (PlanetManager.singleton != null && PlanetManager.singleton.movingList.Count > 0)
+                {
+                    foreach (MovingBody movingBody in PlanetManager.singleton.movingList)
+                    {
+                        if (movingBody.gameObject != this.gameObject)
+                        {
+                            gravity += movingBody.GetGravity(segments[i - 1], rb.mass, i);
+                        }
+                    }
+                }
 
-            segments[i] = segments[i - 1] + bulletInitialVelocity;
-            RaycastHit2D hit = Physics2D.Raycast(segments[i-1], bulletInitialVelocity, bulletInitialVelocity.magnitude);
-            if(hit.collider != null)
-            {
-                if (hit.collider.transform.tag == "MovingBody" || hit.collider.transform.tag == "Planet" || hit.collider.transform.tag == "Enemy")
+                bulletInitialVelocity += gravity * Time.fixedDeltaTime * slowDown;
+
+                segments[i] = segments[i - 1] + bulletInitialVelocity;
+
+                RaycastHit2D hit = Physics2D.Raycast(segments[i - 1], bulletInitialVelocity, bulletInitialVelocity.magnitude);
+                if (hit.collider != null)
+                {
+                    if (hit.collider.transform.tag == "MovingBody" || hit.collider.transform.tag == "Planet" || hit.collider.transform.tag == "Enemy")
+                    {
+                        lr.startColor = Color.red;
+                        lr.endColor = Color.red;
+                        collisionCourse = true;
+                    }
+                }
+                else if(CollisionWithMoving(segments[i], i))
                 {
                     lr.startColor = Color.red;
                     lr.endColor = Color.red;
@@ -120,5 +134,18 @@ public class GravityAffect : MonoBehaviour
         {
             lr.SetPosition(j, segments[j]);
         }
+    }
+
+    private bool CollisionWithMoving(Vector2 segment, int i)
+    {
+        bool collision = false;
+        foreach(MovingBody body in PlanetManager.singleton.movingList)
+        {
+            if((segment - body.futurePoints[i]).magnitude < body.Radius)
+            {
+                collision = true;
+            }
+        }
+        return collision;
     }
 }

@@ -9,6 +9,12 @@ using UnityEngine.Serialization;
 public class MovingBody : MonoBehaviour
 {
     public Vector2[] futurePoints;
+    public float Radius {
+        get
+        {
+            return transform.localScale.x * GetComponent<CircleCollider2D>().radius;
+        }
+    }
 
     private int amountOfPoints;
     public bool SetUp { get; private set; }
@@ -81,5 +87,10 @@ public class MovingBody : MonoBehaviour
         
         futurePoints = points;
         SetUp = true;
+    }
+
+    public Vector2 GetPosition(int i)
+    {
+        return futurePoints[i];
     }
 }
