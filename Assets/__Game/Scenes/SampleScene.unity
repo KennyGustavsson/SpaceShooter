@@ -2208,6 +2208,14 @@ PrefabInstance:
       propertyPath: planetList.Array.data[6]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7256130610591683802, guid: f184abef4a99077419a45f32d69fa170, type: 3}
+      propertyPath: startForce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256130610591683802, guid: f184abef4a99077419a45f32d69fa170, type: 3}
+      propertyPath: debugGravityOff
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f184abef4a99077419a45f32d69fa170, type: 3}
 --- !u!1001 &3309233137078258744
@@ -2396,22 +2404,6 @@ PrefabInstance:
     - target: {fileID: 6239418675003371081, guid: 2d1d1c2c5039d8443a3a9196e2516b08, type: 3}
       propertyPath: m_Name
       value: ObjectPool
-      objectReference: {fileID: 0}
-    - target: {fileID: 6239418675003371086, guid: 2d1d1c2c5039d8443a3a9196e2516b08, type: 3}
-      propertyPath: structPools.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6239418675003371086, guid: 2d1d1c2c5039d8443a3a9196e2516b08, type: 3}
-      propertyPath: structPools.Array.data[3].objectToPool
-      value: 
-      objectReference: {fileID: 4230013781759480552, guid: 948f266768f91a24d827c111676089eb, type: 3}
-    - target: {fileID: 6239418675003371086, guid: 2d1d1c2c5039d8443a3a9196e2516b08, type: 3}
-      propertyPath: structPools.Array.data[3].amountToPool
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6239418675003371086, guid: 2d1d1c2c5039d8443a3a9196e2516b08, type: 3}
-      propertyPath: structPools.Array.data[3].ID
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6239418675003371087, guid: 2d1d1c2c5039d8443a3a9196e2516b08, type: 3}
       propertyPath: m_LocalPosition.x
