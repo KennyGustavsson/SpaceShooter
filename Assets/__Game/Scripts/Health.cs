@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace SS
@@ -6,7 +7,9 @@ namespace SS
     public class Health : MonoBehaviour
     {
         public int health = 100;
+
         private Text _healthDisplay;
+        private SpriteRenderer _spriteRend;
 
         private void Awake()
         {
@@ -15,13 +18,14 @@ namespace SS
                 _healthDisplay = GameObject.Find("HealthDisplay").GetComponent<Text>();
                 _healthDisplay.text = $"Health {health}";
             }
+
+            if(GetComponent<SpriteRenderer>() != null) _spriteRend = GetComponent<SpriteRenderer>();
+            else if(GetComponentInChildren<SpriteRenderer>() != null) _spriteRend = GetComponentInChildren<SpriteRenderer>();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log(collision.relativeVelocity.magnitude);
-            Debug.Log((int)collision.relativeVelocity.magnitude);
-            if (collision.relativeVelocity.magnitude > 2) HealthChange(-(int)collision.relativeVelocity.magnitude);
+            if (collision.relativeVelocity.magnitude > 5) HealthChange(-(int)collision.relativeVelocity.magnitude);
         }
 
         public void HealthChange(int value)
@@ -35,6 +39,8 @@ namespace SS
                 obj.transform.rotation = transform.rotation;
                 obj.SetActive(true);
 
+                SoundManager.Instance.PlayAudioAtLocation(3, transform.position);
+
                 this.gameObject.SetActive(false);
 
                 health = 0;
@@ -45,8 +51,21 @@ namespace SS
                 }
             }
             else if (health > 100) health = 100;
+            else if (value < 0)
+            {
+                StartCoroutine(ColorEffect());
+                SoundManager.Instance.PlayAudioAtLocation(2, transform.position);
+            }
+
 
             if(_healthDisplay != null) _healthDisplay.text = $"Health {health}";
+        }
+
+        IEnumerator ColorEffect()
+        {
+            _spriteRend.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            _spriteRend.color = Color.white;
         }
     }
 }

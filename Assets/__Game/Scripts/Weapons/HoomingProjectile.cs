@@ -100,6 +100,9 @@ namespace SS {
             obj.transform.position = transform.position + transform.up;
             obj.transform.rotation = transform.rotation;
             obj.SetActive(true);
+
+            SoundManager.Instance.PlayAudioAtLocation(3, transform.position);
+
             gameObject.SetActive(false);
         }
     }

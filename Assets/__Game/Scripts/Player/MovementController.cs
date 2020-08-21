@@ -36,7 +36,6 @@ namespace SS {
             {
                 transform.position += transform.up * _boosterSpeed * Time.fixedDeltaTime;
             }
-            else isBoosting = false;
 
             // Rotate
             if (rotation != 0) Rotate();

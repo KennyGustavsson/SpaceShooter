@@ -10,6 +10,7 @@ namespace SS
 
         private LineRenderer _ln;
         private Vector3 _rot;
+        private bool _initialized;
 
         private void Awake()
         {
@@ -33,7 +34,13 @@ namespace SS
                 _ln.SetPosition(0, transform.position);
                 _ln.SetPosition(1, transform.up * length);
             }
+            if(_initialized) SoundManager.Instance.PlayAudioAtLocation(1, transform.position);
             StartCoroutine(timer());
+        }
+
+        private void OnDisable()
+        {
+            _initialized = true;
         }
 
         private IEnumerator timer()
