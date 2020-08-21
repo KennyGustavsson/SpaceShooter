@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2000232408972072172}
   - component: {fileID: 2799152648754307942}
   - component: {fileID: 7842318889790098552}
+  - component: {fileID: 7619914005207932887}
   m_Layer: 0
   m_Name: Moon
   m_TagString: MovingBody
@@ -98,106 +99,106 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   futurePoints:
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
-  - {x: NaN, y: NaN}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
   distanceFromCenter: 10
   rotationSpeed: 3
   planetMass: 5
@@ -414,6 +415,22 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!58 &7619914005207932887
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408631210370504532}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1 &8971311390234698099
 GameObject:
   m_ObjectHideFlags: 0

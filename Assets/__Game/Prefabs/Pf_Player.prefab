@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  projectileSpeed: 1500
+  projectileSpeed: 15
   primaryID: 0
   primaryFireRate: 0.3
   secondaryID: 1
@@ -613,7 +613,7 @@ MonoBehaviour:
   startForce: 0
   slowDown: 1
   segScale: 1
-  debugGravityOff: 0
+  debugGravityOff: 1
 --- !u!50 &3111096773605897042
 Rigidbody2D:
   serializedVersion: 4

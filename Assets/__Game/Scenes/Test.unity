@@ -1883,6 +1883,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1828563735}
+    - target: {fileID: 4040080995865061534, guid: 25f7aac7150abb647a0f0b2c73902c9b, type: 3}
+      propertyPath: orthographic size
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4040080995865061535, guid: 25f7aac7150abb647a0f0b2c73902c9b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
