@@ -17,8 +17,8 @@ public class InGameMenu : MonoBehaviour, IPointerDownHandler
 
     public void Pause()
     {
-        canvasObj.SetActive(!canvasObj.active);
-        if (canvasObj.active) Time.timeScale = 0;
+        canvasObj.SetActive(!canvasObj.activeSelf);
+        if (canvasObj.activeSelf) Time.timeScale = 0;
         else Time.timeScale = 1;
     }
 
