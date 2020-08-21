@@ -6,6 +6,8 @@ namespace SS
     [RequireComponent(typeof(MovementController))]
     public class PlayerInput : MonoBehaviour
     {
+        public InGameMenu menu;
+
         private MovementController _movement;
         private Player _player;
 
@@ -23,6 +25,8 @@ namespace SS
 
             _player.primaryFire = Input.GetKey(KeyCode.Mouse0);
             _player.secondaryFire = Input.GetKey(KeyCode.Mouse1);
+
+            if (Input.GetKeyDown(KeyCode.Escape)) menu.Pause();
         }
     }
 }
