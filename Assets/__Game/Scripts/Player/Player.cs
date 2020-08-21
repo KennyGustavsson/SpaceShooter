@@ -13,7 +13,7 @@ namespace SS
         [SerializeField] private int health = 100;
 
         [Header("Current Fire Mode")]
-        [SerializeField] private float projectileSpeed = 5000;
+        public float projectileSpeed = 5;
         public int primaryID = 0;
         public float primaryFireRate = 0.3f;
         public int secondaryID = 1;
@@ -48,7 +48,7 @@ namespace SS
             obj.transform.position = transform.position + transform.up;
             obj.transform.rotation = transform.rotation;
             obj.SetActive(true);
-            obj.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
+            obj.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed, ForceMode2D.Impulse);
             StartCoroutine(PrimaryFireCoolDown());
         }
 
