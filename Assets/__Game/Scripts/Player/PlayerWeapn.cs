@@ -7,11 +7,9 @@ namespace SS
 {
     [RequireComponent(typeof(PlayerInput))]
     [RequireComponent(typeof(MovementController))]
-    public class Player : MonoBehaviour
+    [RequireComponent(typeof(Health))]
+    public class PlayerWeapn : MonoBehaviour
     {
-        [Header("Health")]
-        [SerializeField] private int health = 100;
-
         [Header("Current Fire Mode")]
         public float projectileSpeed = 5;
         public int primaryID = 0;
@@ -22,17 +20,12 @@ namespace SS
         [NonSerialized] public bool primaryFire;
         [NonSerialized] public bool secondaryFire;
 
-        [Header("UI")]
-        public Text healthDisplay;
-
-
         private Rigidbody2D _rb;
         private bool fireCooldown;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
-            healthDisplay.text = $"Health {health}";
         }
 
         private void FixedUpdate()
@@ -75,29 +68,6 @@ namespace SS
             fireCooldown = true;
             yield return new WaitForSeconds(secondaryFireRate);
             fireCooldown = false;
-        }
-
-        public void HealthChange(int value)
-        {
-            health += value;
-            if (health <= 0)
-            {
-                // GameOver;
-
-                var obj = ObjectPool.ObjPool.GetPooledObject(20);
-                obj.SetActive(false);
-                obj.transform.position = transform.position + transform.up;
-                obj.transform.rotation = transform.rotation;
-                obj.SetActive(true);
-
-                this.gameObject.SetActive(false);
-
-                health = 0;
-                Debug.Log("GameOver");
-            }
-            else if (health > 100) health = 100;
-
-            healthDisplay.text = $"Health {health}";
         }
     }
 }

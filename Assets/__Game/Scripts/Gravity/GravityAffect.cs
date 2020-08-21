@@ -19,7 +19,7 @@ public class GravityAffect : MonoBehaviour
     int previewLineMaxPoints;
     [SerializeField] private float segScale;
     bool isPlayer = false;
-    SS.Player player;
+    SS.PlayerWeapn player;
     SS.MovementController movement;
     [SerializeField] bool debugGravityOff = false;
 
@@ -31,7 +31,7 @@ public class GravityAffect : MonoBehaviour
         {
             lr.positionCount = previewLineMaxPoints;
             isPlayer = true;
-            player = GetComponent<SS.Player>();
+            player = GetComponent<SS.PlayerWeapn>();
             movement = GetComponent<SS.MovementController>();
         }
     }

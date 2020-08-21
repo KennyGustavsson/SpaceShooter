@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace SS
 {
-    [RequireComponent(typeof(Player))]
+    [RequireComponent(typeof(PlayerWeapn))]
     [RequireComponent(typeof(MovementController))]
     public class PlayerInput : MonoBehaviour
     {
@@ -11,14 +11,14 @@ namespace SS
 
         private PlayerController _controller;
         private MovementController _movement;
-        private Player _player;
+        private PlayerWeapn _player;
 
         private void Awake()
         {
             _controller = new PlayerController();
 
             _movement = GetComponent<MovementController>();
-            _player = GetComponent<Player>();
+            _player = GetComponent<PlayerWeapn>();
 
             // Movement
             _controller.Gameplay.Vertical.performed += ctx => _movement.vertical = ctx.ReadValue<float>();

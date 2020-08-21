@@ -525,6 +525,7 @@ GameObject:
   - component: {fileID: 3111096773605897046}
   - component: {fileID: 2819331124175375114}
   - component: {fileID: 5965678680744543926}
+  - component: {fileID: 8290867407865804614}
   m_Layer: 8
   m_Name: Pf_Player
   m_TagString: Player
@@ -560,13 +561,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55934ca04ef19143ada496b0d59d2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  projectileSpeed: 15
+  projectileSpeed: 30
   primaryID: 0
   primaryFireRate: 0.3
   secondaryID: 1
   secondaryFireRate: 0.6
-  healthDisplay: {fileID: 519543579}
 --- !u!114 &359777450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,7 +594,7 @@ MonoBehaviour:
   _speed: 10
   _acceleration: 30
   _rotationSpeed: 200
-  _boosterSpeed: 8
+  _boosterSpeed: 20
   _drag: 1
 --- !u!114 &7256130610591683802
 MonoBehaviour:
@@ -867,3 +866,16 @@ MonoBehaviour:
   movingList:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &8290867407865804614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3111096773605897052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c363aa7e875ce7349b5f1d73d63840ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100

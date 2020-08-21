@@ -26,10 +26,10 @@ namespace SS
                 switch ((int)pickSlot)
                 {
                     case 0:
-                        collision.transform.GetComponent<Player>().primaryID = (int)pickWeapon;
+                        collision.transform.GetComponent<PlayerWeapn>().primaryID = (int)pickWeapon;
                         break;
                     case 1:
-                        collision.transform.GetComponent<Player>().secondaryID = (int)pickWeapon;
+                        collision.transform.GetComponent<PlayerWeapn>().secondaryID = (int)pickWeapon;
                         break;
                 }
                 Destroy(gameObject);
