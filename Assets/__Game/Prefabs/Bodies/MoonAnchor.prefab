@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2799152648754307942}
   - component: {fileID: 7842318889790098552}
   - component: {fileID: 7619914005207932887}
+  - component: {fileID: 7310773140353589494}
   m_Layer: 0
   m_Name: Moon
   m_TagString: MovingBody
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 408631210370504532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 5}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 7552895284281530756}
   m_RootOrder: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 53757167307a2564fbf4f6dc0c65c3dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -430,7 +431,23 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.21
+--- !u!114 &7310773140353589494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408631210370504532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b241186c1d2f8c4c980f864630c9b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 53757167307a2564fbf4f6dc0c65c3dd, type: 3}
+  - {fileID: 21300000, guid: b87b16c7132a8fc4fa346bf970e98f56, type: 3}
+  - {fileID: 21300000, guid: 324458e1f352925458348225ce09b021, type: 3}
 --- !u!1 &8971311390234698099
 GameObject:
   m_ObjectHideFlags: 0

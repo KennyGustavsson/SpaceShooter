@@ -11,14 +11,16 @@ namespace SS {
         public float lifeSpan = 5f;
 
         private Rigidbody2D _rb;
-        public Transform _target;
+        private Transform _target;
         private bool _exploded;
         private float _distance;
         private float forwardSpeed;
+        private ObjectPool _objPool;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _objPool = GetComponentInParent<ObjectPool>();
         }
 
         private void OnEnable()
@@ -95,6 +97,11 @@ namespace SS {
         public void Explode()
         {
             _exploded = true;
+            var obj = ObjectPool.ObjPool.GetPooledObject(20);
+            obj.SetActive(false);
+            obj.transform.position = transform.position + transform.up;
+            obj.transform.rotation = transform.rotation;
+            obj.SetActive(true);
             gameObject.SetActive(false);
         }
     }
