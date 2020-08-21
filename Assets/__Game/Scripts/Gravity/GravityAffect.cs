@@ -20,6 +20,7 @@ public class GravityAffect : MonoBehaviour
     [SerializeField] private float segScale;
     bool isPlayer = false;
     SS.Player player;
+    SS.MovementController movement;
     [SerializeField] bool debugGravityOff = false;
 
     private void Awake()
@@ -31,11 +32,14 @@ public class GravityAffect : MonoBehaviour
             lr.positionCount = previewLineMaxPoints;
             isPlayer = true;
             player = GetComponent<SS.Player>();
+            movement = GetComponent<SS.MovementController>();
         }
     }
 
     private void FixedUpdate()
     {
+        debugGravityOff = movement.isBoosting;
+
         Vector2 currentGravity = Vector2.zero;
         if(PlanetManager.singleton != null && PlanetManager.singleton.planetList.Count > 0)
             foreach (PlanetGravity planet in PlanetManager.singleton.planetList)
@@ -66,7 +70,7 @@ public class GravityAffect : MonoBehaviour
         
         Vector2[] segments = new Vector2[previewLineMaxPoints];
 
-        Vector2 bulletInitialVelocity = transform.up * player.projectileSpeed * rb.velocity * Time.fixedDeltaTime;
+        Vector2 bulletInitialVelocity = transform.up * player.projectileSpeed * Time.fixedDeltaTime;
 
         segments[0] = transform.position;
 
