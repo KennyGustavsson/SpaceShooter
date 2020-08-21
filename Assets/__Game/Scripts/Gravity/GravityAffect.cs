@@ -66,7 +66,7 @@ public class GravityAffect : MonoBehaviour
         
         Vector2[] segments = new Vector2[previewLineMaxPoints];
 
-        Vector2 bulletInitialVelocity = transform.up * player.projectileSpeed * Time.fixedDeltaTime;
+        Vector2 bulletInitialVelocity = transform.up * player.projectileSpeed * rb.velocity * Time.fixedDeltaTime;
 
         segments[0] = transform.position;
 
