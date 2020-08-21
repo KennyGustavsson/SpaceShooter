@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
+[ExecuteInEditMode]
 public class PlanetGravity : MonoBehaviour
 {
-    public int planetMass;
+    [SerializeField] int planetMass;
 
     //Get vector pointing towards center of planet with a magnitude of gravityStrength
     public Vector2 GetGravity(Vector3 objectPosition, float objectMass)
