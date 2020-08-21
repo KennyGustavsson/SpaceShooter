@@ -83,6 +83,15 @@ namespace SS
             if (health <= 0)
             {
                 // GameOver;
+
+                var obj = ObjectPool.ObjPool.GetPooledObject(20);
+                obj.SetActive(false);
+                obj.transform.position = transform.position + transform.up;
+                obj.transform.rotation = transform.rotation;
+                obj.SetActive(true);
+
+                this.gameObject.SetActive(false);
+
                 health = 0;
                 Debug.Log("GameOver");
             }
