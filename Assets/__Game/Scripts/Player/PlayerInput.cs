@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace SS
@@ -37,7 +36,7 @@ namespace SS
             _controller.Gameplay.Fire1.canceled += StopFire1;
 
             _controller.Gameplay.Fire2.performed += StartFire2;
-            _controller.Gameplay.Fire2.performed += StopFire2;
+            _controller.Gameplay.Fire2.canceled += StopFire2;
 
             // Pause
             _controller.Gameplay.Pause.performed += PauseHandle;
@@ -90,13 +89,11 @@ namespace SS
         // Fire 2
         private void StartFire2(InputAction.CallbackContext context)
         {
-            Debug.Log("SecFire");
             _player.secondaryFire = true;
         }
 
         private void StopFire2(InputAction.CallbackContext context)
         {
-            Debug.Log("SecFireStop");
             _player.secondaryFire = false;
         }
 

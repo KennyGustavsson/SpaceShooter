@@ -19,11 +19,11 @@ namespace SS
         public int secondaryID = 1;
         public float secondaryFireRate = 0.6f;
 
-        [Header("UI")]
-        public Text healthDisplay;
-
         [NonSerialized] public bool primaryFire;
         [NonSerialized] public bool secondaryFire;
+
+        [Header("UI")]
+        public Text healthDisplay;
 
 
         private Rigidbody2D _rb;
@@ -35,10 +35,15 @@ namespace SS
             healthDisplay.text = $"Health {health}";
         }
 
+        private void Update()
+        {
+            print(secondaryFire);
+        }
+
         private void FixedUpdate()
         {
-            if (primaryFire && !fireCooldown) Fire1();
             if (secondaryFire && !fireCooldown) Fire2();
+            if (primaryFire && !fireCooldown) Fire1();
         }
 
         private void Fire1()
@@ -59,7 +64,7 @@ namespace SS
             obj.transform.position = transform.position + transform.up;
             obj.transform.rotation = transform.rotation;
             obj.SetActive(true);
-            //obj.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
+            obj.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
             StartCoroutine(SecondaryFireCoolDown());
         }
 
