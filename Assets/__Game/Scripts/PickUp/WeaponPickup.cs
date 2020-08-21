@@ -7,29 +7,28 @@ namespace SS
         public enum weapon
         {
             Projectile,
-            HoomingProjectile,
+            HoomingMissle,
             Raygun,
             Missle
         }
         public weapon pickWeapon;
 
-        public enum weaponSlot
-        {
-            Primary,
-            Secondary
-        }
-        public weaponSlot pickSlot;
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.layer == 8)
             {
-                switch ((int)pickSlot)
+                switch ((int)pickWeapon)
                 {
                     case 0:
                         collision.transform.GetComponent<PlayerWeapn>().primaryID = (int)pickWeapon;                        
                         break;
                     case 1:
+                        collision.transform.GetComponent<PlayerWeapn>().secondaryID = (int)pickWeapon;
+                        break;
+                    case 2:
+                        collision.transform.GetComponent<PlayerWeapn>().primaryID = (int)pickWeapon;
+                        break;
+                    case 3:
                         collision.transform.GetComponent<PlayerWeapn>().secondaryID = (int)pickWeapon;
                         break;
                 }

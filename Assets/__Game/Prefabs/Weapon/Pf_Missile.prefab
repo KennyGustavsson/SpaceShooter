@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5356a821b413e6247a3cd06ef376cd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketSpeed: 5
-  rocketAcceleration: 20
+  rocketSpeed: 50
+  rocketAcceleration: 50
   lifeSpan: 5
 --- !u!58 &7455627927534336808
 CircleCollider2D:
