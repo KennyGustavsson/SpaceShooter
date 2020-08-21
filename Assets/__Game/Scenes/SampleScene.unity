@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1046,6 +1046,79 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d1e047b444b8244d8a91cb5990f5f4c, type: 3}
+--- !u!1001 &662189865
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8890734772722406565, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_Name
+      value: SkyboxCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406566, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406567, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406567, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_Depth
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406567, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890734772722406567, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c872290143cf2f4382fb7534e732a18, type: 3}
 --- !u!1001 &1075370289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2210,7 +2283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7256130610591683802, guid: f184abef4a99077419a45f32d69fa170, type: 3}
       propertyPath: startForce
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7256130610591683802, guid: f184abef4a99077419a45f32d69fa170, type: 3}
       propertyPath: debugGravityOff

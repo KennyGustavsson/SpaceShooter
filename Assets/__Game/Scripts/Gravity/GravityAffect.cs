@@ -38,7 +38,7 @@ public class GravityAffect : MonoBehaviour
 
     private void FixedUpdate()
     {
-        debugGravityOff = movement.isBoosting;
+        if(movement != null) debugGravityOff = movement.isBoosting;
 
         Vector2 currentGravity = Vector2.zero;
         if(PlanetManager.singleton != null && PlanetManager.singleton.planetList.Count > 0)
