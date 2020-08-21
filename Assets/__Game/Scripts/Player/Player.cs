@@ -45,7 +45,7 @@ namespace SS
         {
             var obj = ObjectPool.ObjPool.GetPooledObject(primaryID);
             obj.SetActive(false);
-            obj.transform.position = transform.position + transform.up;
+            obj.transform.position = transform.position + transform.up * 2;
             obj.transform.rotation = transform.rotation;
             obj.SetActive(true);
             obj.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed, ForceMode2D.Impulse);
@@ -56,7 +56,7 @@ namespace SS
         {
             var obj = ObjectPool.ObjPool.GetPooledObject(secondaryID);
             obj.SetActive(false);
-            obj.transform.position = transform.position + transform.up;
+            obj.transform.position = transform.position + transform.up * 2;
             obj.transform.rotation = transform.rotation;
             obj.SetActive(true);
             obj.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);

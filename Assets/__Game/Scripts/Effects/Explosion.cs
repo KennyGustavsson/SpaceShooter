@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 
-public class Explosion : MonoBehaviour
+namespace SS
 {
-    private Animator _anim;
-
-    private void Awake()
+    public class Explosion : MonoBehaviour
     {
-        _anim = GetComponent<Animator>();
-    }
+        private Animator _anim;
 
-    private void OnEnable()
-    {
-        _anim.Play("Explosion");
+        private void Awake()
+        {
+            _anim = GetComponent<Animator>();
+        }
+
+        private void OnEnable()
+        {
+            _anim.Play("Explosion");
+        }
     }
 }

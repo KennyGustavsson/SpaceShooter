@@ -3,7 +3,7 @@
 public class SkyboxCam : MonoBehaviour
 {
     [SerializeField, Range(0.000001f, 1)]
-    float slowDown;
+    float slowDown = 0.05f;
     Transform player;
 
     private void Awake()

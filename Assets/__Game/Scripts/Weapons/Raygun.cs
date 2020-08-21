@@ -20,18 +20,18 @@ namespace SS
 
         private void OnEnable()
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up, transform.up);
             if (hit.collider != null)
             {
                 _ln.SetPosition(0, transform.position);
-                _ln.SetPosition(1, transform.up * length);
+                _ln.SetPosition(1, hit.point);
 
                 //Damage thing
             }
             else
             {
                 _ln.SetPosition(0, transform.position);
-                _ln.SetPosition(1, hit.point);
+                _ln.SetPosition(1, transform.up * length);
             }
             StartCoroutine(timer());
         }

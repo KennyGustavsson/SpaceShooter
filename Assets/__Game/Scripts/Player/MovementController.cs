@@ -31,17 +31,17 @@ namespace SS {
 
         private void FixedUpdate()
         {
-            //Boost
+            // Boost
             if (vertical > 0 && isBoosting)
             {
                 transform.position += transform.up * _boosterSpeed * Time.fixedDeltaTime;
             }
             else isBoosting = false;
 
-            //Rotate
+            // Rotate
             if (rotation != 0) Rotate();
 
-            //Moveforward
+            // Moveforward
             if (vertical > 0) MoveForward();
             else rb.drag = _drag;
 

@@ -35,16 +35,16 @@ namespace SS {
 
             for(int i = 0; i < hitColliders.Length; i++)
             {
-                if ((transform.position - hitColliders[i].transform.position).sqrMagnitude < _distance)
+                if ((transform.position - hitColliders[i].transform.position).sqrMagnitude > _distance)
                 {
                     if(hitColliders[i].gameObject.layer == 9)
                     {
                         _distance = (hitColliders[i].transform.position - transform.position).sqrMagnitude;
                         _target = hitColliders[i].transform;
-                    }
-                    else _target = null;
+                    }                    
                 }
             }
+
             StartCoroutine(Timer());
         }
 
@@ -72,15 +72,13 @@ namespace SS {
 #endif
 
         private void FaceTarget()
-        {          
+        {   
             float posX = _target.position.x - transform.position.x;
             float posY = _target.position.y - transform.position.y;
 
             float angle = Mathf.Atan2(posX, posY) * Mathf.Rad2Deg;
 
-            transform.localEulerAngles =  new Vector3(0, 0, -angle);
-
-            //transform.LookAt(_target.position, Vector3.up);
+            transform.localEulerAngles =  new Vector3(0, 0, -angle);                              
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

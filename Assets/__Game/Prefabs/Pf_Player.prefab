@@ -611,7 +611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lr: {fileID: 2819331124175375114}
   rb: {fileID: 3111096773605897042}
-  startForce: 0
+  startForce: 0.4
   slowDown: 1
   segScale: 1
   debugGravityOff: 0
@@ -861,6 +861,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetList:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   movingList:
   - {fileID: 0}

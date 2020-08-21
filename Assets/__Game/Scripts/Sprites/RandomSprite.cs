@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 
-public class RandomSprite : MonoBehaviour
+namespace SS
 {
-    public Sprite[] sprites;
-
-    private SpriteRenderer _spriteRend;
-
-    private void Awake()
+    public class RandomSprite : MonoBehaviour
     {
-        _spriteRend = GetComponent<SpriteRenderer>();
+        public Sprite[] sprites;
 
-        int i = Random.Range(0, sprites.Length);
-        _spriteRend.sprite = sprites[i];
+        private SpriteRenderer _spriteRend;
+
+        private void Awake()
+        {
+            _spriteRend = GetComponent<SpriteRenderer>();
+
+            int i = Random.Range(0, sprites.Length);
+            _spriteRend.sprite = sprites[i];
+        }
     }
 }
