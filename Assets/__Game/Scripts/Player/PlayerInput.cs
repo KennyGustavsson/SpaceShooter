@@ -51,6 +51,7 @@ namespace SS
             _controller.Gameplay.Horizontal.Enable();
             _controller.Gameplay.Fire1.Enable();
             _controller.Gameplay.Fire2.Enable();
+            _controller.Gameplay.Pause.Enable();
         }
 
         private void OnDisable()
@@ -61,31 +62,28 @@ namespace SS
             _controller.Gameplay.Horizontal.Disable();
             _controller.Gameplay.Fire1.Disable();
             _controller.Gameplay.Fire2.Disable();
+            _controller.Gameplay.Pause.Disable();
         }
 
         // Booster
         private void StartBoost(InputAction.CallbackContext context)
         {
-            Debug.Log("Booster");
-            _movement.booster = true;
+            _movement.isBoosting = true;
         }
 
         private void StopBoost(InputAction.CallbackContext context)
         {
-            Debug.Log("BoosterStop");
-            _movement.booster = false;
+            _movement.isBoosting = false;
         }
 
         // Fire 1
         private void StartFire1(InputAction.CallbackContext context)
         {
-            Debug.Log("Prifire");
             _player.primaryFire = true;
         }
 
         private void StopFire1(InputAction.CallbackContext context)
         {
-            Debug.Log("PriFireStop");
             _player.primaryFire = false;
         }
 
@@ -105,7 +103,6 @@ namespace SS
         // Pause
         private void PauseHandle(InputAction.CallbackContext context)
         {
-            Debug.Log("Pause");
             menu.Pause();
         }
     }
