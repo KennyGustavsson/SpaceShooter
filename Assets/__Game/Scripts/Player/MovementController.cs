@@ -32,9 +32,8 @@ namespace SS {
         private void FixedUpdate()
         {
             //Boost
-            if (Input.GetKey(KeyCode.Space) && vertical > 0)
+            if (vertical > 0 && isBoosting)
             {
-                isBoosting = true;
                 transform.position += transform.up * _boosterSpeed * Time.fixedDeltaTime;
             }
             else isBoosting = false;
