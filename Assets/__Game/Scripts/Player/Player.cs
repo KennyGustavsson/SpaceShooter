@@ -35,11 +35,6 @@ namespace SS
             healthDisplay.text = $"Health {health}";
         }
 
-        private void Update()
-        {
-            print(secondaryFire);
-        }
-
         private void FixedUpdate()
         {
             if (secondaryFire && !fireCooldown) Fire2();
