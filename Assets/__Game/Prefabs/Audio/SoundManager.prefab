@@ -50,6 +50,14 @@ MonoBehaviour:
   SFXs:
   - ID: 0
     sound: {fileID: 8300000, guid: e916a6126a68d4d48bac0db28b7c7e2f, type: 3}
+  - ID: 1
+    sound: {fileID: 8300000, guid: 9e62af203424b5d4b98d84b3eefbefd8, type: 3}
+  - ID: 2
+    sound: {fileID: 8300000, guid: 2ab0956b8cd76ba42ad8b0f74de10335, type: 3}
+  - ID: 3
+    sound: {fileID: 8300000, guid: 79565569620a1e54da3d22eac4e7f14e, type: 3}
+  - ID: 4
+    sound: {fileID: 8300000, guid: dc1b92628f20f9b438101d533f15f92b, type: 3}
 --- !u!82 &2709159772563994891
 AudioSource:
   m_ObjectHideFlags: 0

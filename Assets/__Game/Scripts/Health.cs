@@ -53,17 +53,18 @@ namespace SS
             else if (health > 100) health = 100;
             else if (value < 0)
             {
-                StartCoroutine(ColorEffect());
+                StartCoroutine(ColorEffect(Color.red));
                 SoundManager.Instance.PlayAudioAtLocation(2, transform.position);
             }
+            else StartCoroutine(ColorEffect(Color.green));
 
 
-            if(_healthDisplay != null) _healthDisplay.text = $"Health {health}";
+            if (_healthDisplay != null) _healthDisplay.text = $"Health {health}";
         }
 
-        IEnumerator ColorEffect()
+        IEnumerator ColorEffect(Color color)
         {
-            _spriteRend.color = Color.red;
+            _spriteRend.color = color;
             yield return new WaitForSeconds(0.1f);
             _spriteRend.color = Color.white;
         }

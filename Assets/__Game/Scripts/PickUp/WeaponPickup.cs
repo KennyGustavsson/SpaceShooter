@@ -26,12 +26,13 @@ namespace SS
                 switch ((int)pickSlot)
                 {
                     case 0:
-                        collision.transform.GetComponent<PlayerWeapn>().primaryID = (int)pickWeapon;
+                        collision.transform.GetComponent<PlayerWeapn>().primaryID = (int)pickWeapon;                        
                         break;
                     case 1:
                         collision.transform.GetComponent<PlayerWeapn>().secondaryID = (int)pickWeapon;
                         break;
                 }
+                SoundManager.Instance.PlayAudioAtLocation(4, transform.position);
                 Destroy(gameObject);
             }
         }

@@ -21,7 +21,8 @@ namespace SS
 
         private Dictionary<int, AudioClip> _audioDic;
 
-        [NonSerialized] private AudioSource _audioSource;
+        private int _audioChannels = 5;
+        private Queue<AudioSource> _sources;      
 
         private void Awake()
         {
@@ -29,17 +30,23 @@ namespace SS
 
             Instance = this;
 
-            _audioDic = new Dictionary<int, AudioClip>();
-
+            // Creating Sound Dictionary
+            _audioDic = new Dictionary<int, AudioClip>();          
             foreach (var sound in SFXs)
             {
                 _audioDic.Add(sound.ID, sound.sound);
             }
 
-            _audioSource = gameObject.AddComponent<AudioSource>();
-            _audioSource.outputAudioMixerGroup = mixer;
-            _audioSource.volume = 0.8f;
-            _audioSource.spatialBlend = 0.5f;
+            // Creating Audio Channels with AudioSources
+            _sources = new Queue<AudioSource>();
+            for(int i = 0; i <_audioChannels; i++)
+            {
+                var audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.outputAudioMixerGroup = mixer;
+                audioSource.volume = 0.8f;
+                audioSource.spatialBlend = 0.5f;
+                _sources.Enqueue(audioSource);
+            }
         }
 
         public void PlayAudioAtLocation(int ID, Vector3 location)
@@ -48,8 +55,10 @@ namespace SS
 
             transform.position = location;
 
-            _audioSource.clip = _audioDic[ID];
-            _audioSource.Play();
+            var source = _sources.Dequeue();
+            source.clip = _audioDic[ID];
+            source.Play();
+            _sources.Enqueue(source);
         }
 
         public void MasterVolume(float sliderValue)
