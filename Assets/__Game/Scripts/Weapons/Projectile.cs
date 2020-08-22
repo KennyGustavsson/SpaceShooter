@@ -3,7 +3,7 @@
 namespace SS {
     public class Projectile : MonoBehaviour
     {
-        public int damage = 10;
+        public int damage = 20;
         private bool initialized;
 
         private void OnEnable()
@@ -23,7 +23,7 @@ namespace SS {
 
             if (collision.gameObject.layer == 9)
             {
-                // Damage
+                collision.transform.GetComponent<Health>().HealthChange(-damage);
             }
 
             gameObject.SetActive(false);

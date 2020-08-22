@@ -45,11 +45,12 @@ namespace SS
                 this.gameObject.SetActive(false);
 
                 health = 0;
-                if(gameObject.layer == 8)
+                if (gameObject.layer == 8)
                 {
                     Debug.Log("GameOver");
                     GameManager.Instance.RestartGame();
                 }
+                else GameManager.Instance.AddScore(10);
             }
             else if (health > 100) health = 100;
             else if (value < 0)
