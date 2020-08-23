@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int scorePoints)
     {
         score += scorePoints;
-        _scoreText.text = score.ToString();
+        _scoreText.text = $"Score: {score}";
     }
 
     private IEnumerator RestartTimer()
