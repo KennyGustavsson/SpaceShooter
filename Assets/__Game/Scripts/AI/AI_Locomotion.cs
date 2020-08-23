@@ -23,29 +23,29 @@ public class AI_Locomotion : MonoBehaviour {
 
     [Header("Target")]
     [SerializeField] private Vector3 finalTarget;
-    [ReadOnly, SerializeField] private Vector3 moveToTarget;
-    [ReadOnly, SerializeField] private Vector3 headingTo;
+    [SerializeField] private Vector3 moveToTarget;
+    [SerializeField] private Vector3 headingTo;
 
-    [ReadOnly, SerializeField] private float distanceToTarget;
+    [SerializeField] private float distanceToTarget;
     [SerializeField] private float distanceThreshold = 1f;
 
     [Header("Direction")]
-    [ReadOnly, SerializeField] private Vector3 direction;
+    [SerializeField] private Vector3 direction;
 
     [Header("Movement")]
     [SerializeField] private float minSpeed = 2f;
     [SerializeField] private float maxSpeed = 5f;
-    [ReadOnly, SerializeField] private float targetSpeed = 5f;
-    [ReadOnly, SerializeField] private float speed;
+    [SerializeField] private float targetSpeed = 5f;
+    [SerializeField] private float speed;
     [SerializeField] private float speedDrag = 0.1f;
     private float smoothSpeedVelocity;
     [Space]
-    [ReadOnly, SerializeField] private Vector3 targetVelocity;
-    [ReadOnly, SerializeField] private Vector3 velocity;
+    [SerializeField] private Vector3 targetVelocity;
+    [SerializeField] private Vector3 velocity;
     [SerializeField] private float velocityDrag = 5;
     private Vector3 smoothVelocityVelocity;
     [Space]
-    [ReadOnly, SerializeField] private Quaternion targetRotation;
+    [SerializeField] private Quaternion targetRotation;
 
     [SerializeField] private float turnDrag = 1f;
     private float turnSmoothVelocity;
@@ -53,7 +53,7 @@ public class AI_Locomotion : MonoBehaviour {
     [Header("Player Interaction")]
     private Vector3 playerPosition;
     [SerializeField] private float searchForPlayerRadius = 20f;
-    [ReadOnly, SerializeField] private bool isPlayerInSight;
+    [SerializeField] private bool isPlayerInSight;
     [SerializeField] private LayerMask playerRaycastMask = 8;
     [SerializeField] private float speedWhenShootingAtPlayer = 0.5f;
     [SerializeField] private float distanceToShotAtPlayer = 25f;
@@ -65,7 +65,7 @@ public class AI_Locomotion : MonoBehaviour {
 
 
     [Header("Misc")]
-    [ReadOnly, SerializeField] private float magnitude;
+    [SerializeField] private float magnitude;
     [Space]
     [SerializeField] private Vector3 addForce;
 
