@@ -4,14 +4,14 @@ namespace SS
 {
     public class WeaponPickup : MonoBehaviour
     {
-        public enum weapon
+        public enum Weapon
         {
             Projectile,
             HoomingMissle,
             Raygun,
             Missle
         }
-        public weapon pickWeapon;
+        public Weapon pickWeapon;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {

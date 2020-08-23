@@ -102,7 +102,8 @@ namespace SS
         IEnumerator DistanceChecker()
         {
             _checkingDistance = true;
-
+            
+            // Check Enemies Distance
             for (int i = 0; i < _enemies.Length; i++)
             {
                 if (Vector3.Distance(_player.position, _enemies[i].transform.position) > maxDinstanceFromPlayer)
@@ -112,6 +113,7 @@ namespace SS
                 yield return new WaitForSeconds(0.5f);
             }
 
+            // Check Health Pickups Distance
             for (int i = 0; i < _healthPickups.Length; i++)
             {
                 if (Vector3.Distance(_player.position, _healthPickups[i].transform.position) > maxDinstanceFromPlayer)

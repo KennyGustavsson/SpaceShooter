@@ -1,20 +1,21 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace SS {
+namespace SS
+{
     public class ObjectPool : MonoBehaviour
     {
         public static ObjectPool ObjPool;
 
         [System.Serializable]
-        public struct structPool
+        public struct StructPool
         {
             public GameObject objectToPool;
             public int amountToPool;
             public int ID;
         }
 
-        public structPool[] structPools;
+        public StructPool[] structPools;
         public Dictionary<int, Queue<GameObject>> poolDictionary;
 
         void Awake()

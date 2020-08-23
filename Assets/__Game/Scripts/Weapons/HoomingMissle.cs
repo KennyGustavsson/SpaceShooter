@@ -69,7 +69,7 @@ namespace SS {
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if(collision.gameObject.layer != 8) Explode();
+            if(collision.gameObject.layer != 8 || collision.gameObject.layer != 10) Explode();
         }
 
         private IEnumerator Timer()

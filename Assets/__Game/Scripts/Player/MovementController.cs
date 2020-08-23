@@ -44,6 +44,7 @@ namespace SS {
             if (vertical > 0) MoveForward();
             else rb.drag = _drag;
 
+            // Animation
             if (rotation < 0)
             {
                 _animator.SetBool("TurnRight", true);
