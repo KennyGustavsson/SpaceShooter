@@ -109,16 +109,16 @@ MonoBehaviour:
   velocityDrag: 3
   targetRotation: {x: 0, y: 0, z: 0, w: 0}
   turnDrag: 1
-  searchForPlayerRadius: 25
+  searchForPlayerRadius: 35
+  isPlayerInSight: 0
   playerRaycastMask:
     serializedVersion: 2
     m_Bits: 256
-  speedWhenShootingAtPlayer: 0.5
-  playerInSight: 0
-  projectileSpeed: 30
-  fireRate: 1
+  speedWhenShootingAtPlayer: 1.5
+  distanceToShotAtPlayer: 45
+  projectileSpeed: 35
   canShoot: 0
-  shootingCooldownTime: 0.75
+  shootingCooldownTime: 0.65
   magnitude: 0
   addForce: {x: 0, y: 0, z: 0}
 --- !u!114 &-3542441097129385694
@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  collisionGate: 5
 --- !u!1 &5566514076869525593
 GameObject:
   m_ObjectHideFlags: 0

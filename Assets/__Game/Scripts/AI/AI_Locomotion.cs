@@ -51,13 +51,13 @@ public class AI_Locomotion : MonoBehaviour {
     private float turnSmoothVelocity;
 
     [Header("Player Interaction")]
+    private Vector3 playerPosition;
     [SerializeField] private float searchForPlayerRadius = 20f;
+    [ReadOnly, SerializeField] private bool isPlayerInSight;
     [SerializeField] private LayerMask playerRaycastMask = 8;
     [SerializeField] private float speedWhenShootingAtPlayer = 0.5f;
-    [ReadOnly, SerializeField] private bool playerInSight;
-    private Vector3 playerPosition;
+    [SerializeField] private float distanceToShotAtPlayer = 25f;
     [SerializeField] private float projectileSpeed = 30f;
-    [SerializeField] private float fireRate = 1f;
     [SerializeField] private bool canShoot;
     [SerializeField] private float shootingCooldownTime = 0.75f;
     private float shootingCooldownTimer;
@@ -88,7 +88,7 @@ public class AI_Locomotion : MonoBehaviour {
             finalTarget = oldTarget;
             SetRandomDestination();
         }
-        if (Physics2D.CircleCast(finalTarget, 3f, direction).collider != null) {
+        if (Physics2D.CircleCast(finalTarget, 3f, Vector3.zero).collider != null) {
             finalTarget = oldTarget;
             SetRandomDestination();
         }
@@ -131,7 +131,7 @@ public class AI_Locomotion : MonoBehaviour {
     }
 
     private void CalculatetSpeed() {
-        if (playerInSight == true) {
+        if (isPlayerInSight == true) {
             targetSpeed = 0.5f;
         }
         else {
@@ -141,7 +141,7 @@ public class AI_Locomotion : MonoBehaviour {
     }
 
     private void CalculateRotation(float deltaTime) {
-        if (playerInSight == true) {
+        if (isPlayerInSight == true) {
             targetRotation = Quaternion.LookRotation(transform.forward, playerPosition - position);
         }
         else {
@@ -164,7 +164,7 @@ public class AI_Locomotion : MonoBehaviour {
 
     private Vector3 CheckForCollision() {
         Vector3 headingToTarget = finalTarget;
-        if (playerInSight == true) {
+        if (isPlayerInSight == true) {
             headingToTarget = playerPosition;
         }
 
@@ -295,9 +295,10 @@ public class AI_Locomotion : MonoBehaviour {
         float distanceToPlayer = 0f;
         RaycastHit2D raycastHit = Physics2D.CircleCast(position, searchForPlayerRadius, Vector3.forward, distanceToPlayer, playerRaycastMask);
         if (raycastHit.collider != null) {
-            playerInSight = true;
+            isPlayerInSight = true;
             playerPosition = raycastHit.point;
-            if (Physics2D.Raycast(position, playerPosition - position, 10f, playerRaycastMask).collider != null) {
+            if (Physics2D.Raycast(position, direction, distanceToShotAtPlayer, playerRaycastMask).collider != null) {
+                Debug.DrawRay(position, direction * 3, Color.magenta);
                 if (canShoot == true) {
                     ShootAtPlayer();
                     canShoot = false;
@@ -305,7 +306,7 @@ public class AI_Locomotion : MonoBehaviour {
             }
             return;
         }
-        playerInSight = false;
+        isPlayerInSight = false;
     }
 
     private void ShootAtPlayer() {
