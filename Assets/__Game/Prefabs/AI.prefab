@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5566514076627722663}
   - component: {fileID: 5566514076627722662}
   - component: {fileID: 5566514076627722665}
+  - component: {fileID: -3542441097129385694}
   m_Layer: 9
   m_Name: AI
   m_TagString: Untagged
@@ -112,8 +113,27 @@ MonoBehaviour:
   playerRaycastMask:
     serializedVersion: 2
     m_Bits: 256
+  speedWhenShootingAtPlayer: 0.5
+  playerInSight: 0
+  projectileSpeed: 30
+  fireRate: 1
+  canShoot: 0
+  shootingCooldownTime: 0.75
   magnitude: 0
   addForce: {x: 0, y: 0, z: 0}
+--- !u!114 &-3542441097129385694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566514076627722664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c363aa7e875ce7349b5f1d73d63840ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &5566514076869525593
 GameObject:
   m_ObjectHideFlags: 0

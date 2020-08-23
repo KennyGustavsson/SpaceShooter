@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SS;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,6 +56,13 @@ public class AI_Locomotion : MonoBehaviour {
     [SerializeField] private float speedWhenShootingAtPlayer = 0.5f;
     [ReadOnly, SerializeField] private bool playerInSight;
     private Vector3 playerPosition;
+    [SerializeField] private float projectileSpeed = 30f;
+    [SerializeField] private float fireRate = 1f;
+    [SerializeField] private bool canShoot;
+    [SerializeField] private float shootingCooldownTime = 0.75f;
+    private float shootingCooldownTimer;
+
+
 
     [Header("Misc")]
     [ReadOnly, SerializeField] private float magnitude;
@@ -65,6 +73,7 @@ public class AI_Locomotion : MonoBehaviour {
         selfRigidBody = GetComponent<Rigidbody2D>();
         selfCollider = GetComponent<Collider2D>();
         SetRandomDestination();
+        shootingCooldownTimer = shootingCooldownTime;
     }
 
     private void SetRandomDestination() {
@@ -92,6 +101,15 @@ public class AI_Locomotion : MonoBehaviour {
         position = transform.position;
 
         CheckForPlayer();
+
+        if (canShoot == false) {
+            shootingCooldownTimer -= deltaTime;
+            if (shootingCooldownTimer <= 0f) {
+                canShoot = true;
+                shootingCooldownTimer = shootingCooldownTime;
+            }
+        }
+
         direction = CheckForCollision();
 
         //Debug to shot where to go
@@ -279,15 +297,31 @@ public class AI_Locomotion : MonoBehaviour {
         if (raycastHit.collider != null) {
             playerInSight = true;
             playerPosition = raycastHit.point;
-            ShootAtPlayer();
+            if (Physics2D.Raycast(position, playerPosition - position, 10f, playerRaycastMask).collider != null) {
+                if (canShoot == true) {
+                    ShootAtPlayer();
+                    canShoot = false;
+                }
+            }
             return;
         }
         playerInSight = false;
     }
 
     private void ShootAtPlayer() {
-
+        GameObject objecPoolProjectile = ObjectPool.ObjPool.GetPooledObject(4);
+        objecPoolProjectile.SetActive(false);
+        objecPoolProjectile.transform.position = transform.position + transform.up * 2;
+        objecPoolProjectile.transform.rotation = transform.rotation;
+        objecPoolProjectile.SetActive(true);
+        objecPoolProjectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed, ForceMode2D.Impulse);
     }
+
+    //IEnumerator Cooldown() {
+    //    _fireCooldown = true;
+    //    yield return new WaitForSeconds(fireRate);
+    //    _fireCooldown = false;
+    //}
 
     private void AddForce() {
         if (Input.GetKey(KeyCode.DownArrow)) {
