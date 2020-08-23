@@ -1,18 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class InGameMenu : MonoBehaviour, IPointerDownHandler
+public class InGameMenu : MonoBehaviour
 {
-    public enum Buttons
-    {
-        none,
-        Continue,
-        MainMenu,
-        Restart
-    }
-    public Buttons select;
-
     public GameObject canvasObj;
 
     public void Pause()
@@ -42,21 +32,5 @@ public class InGameMenu : MonoBehaviour, IPointerDownHandler
         Debug.Log("Restart");
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        switch ((int)select)
-        {
-            case 1:
-                Pause();
-                break;
-            case 2:
-                MainMenu();
-                break;
-            case 3:
-                Restart();
-                break;
-        }
     }
 }

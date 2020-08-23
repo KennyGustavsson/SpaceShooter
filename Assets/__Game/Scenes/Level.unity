@@ -28457,6 +28457,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6675426084136098412, guid: b5e053b09500925409b74d7c44b68042, type: 3}
   m_PrefabInstance: {fileID: 1259278307}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &931030892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4902836879181950201, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+  m_PrefabInstance: {fileID: 8649653069118154206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &932518525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4909311577453550107, guid: 92a396a1f909ed140b793a751f6cec2b, type: 3}
@@ -73059,6 +73064,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 4844066777981129226, guid: e76ab399cc4c6284b9ae4b76ddcaca8b, type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 931030892}
     - target: {fileID: 4844066777981129227, guid: e76ab399cc4c6284b9ae4b76ddcaca8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -73287,10 +73296,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1503859873, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503859873, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1834671147, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1466216787}
+    - target: {fileID: 1844610016, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844610016, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844610016, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246961717441825282, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.7777778
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246961717441825282, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.7777778
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246961717441825282, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303867071453890096, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1466216787}
+    - target: {fileID: 3303867071453890096, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SS.SoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303867071453890096, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510388994823948383, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.7777778
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510388994823948383, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8649653067765738778, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -73378,6 +73439,10 @@ PrefabInstance:
     - target: {fileID: 8649653067765738782, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
       propertyPath: m_Name
       value: Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649653067765738782, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae80d58717fe1a49a2d05321bd5467e, type: 3}
