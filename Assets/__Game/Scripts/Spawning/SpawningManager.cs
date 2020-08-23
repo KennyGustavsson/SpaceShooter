@@ -43,6 +43,7 @@ namespace SS
         {
             yield return new WaitForSeconds(3);
 
+            // Spawn Enemies
             _enemies = new GameObject[amountToSpawn];
             for (int i = 0; i < amountToSpawn; i++)
             {
@@ -67,6 +68,7 @@ namespace SS
                 yield return new WaitForSeconds(Random.Range(0f, 0.5f));
             }
 
+            // Spawn Health Pickups
             _healthPickups = new GameObject[amountHealthToSpawn];
             for(int j = 0; j < amountHealthToSpawn; j++)
             {

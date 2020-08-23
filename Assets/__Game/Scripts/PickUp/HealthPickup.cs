@@ -18,7 +18,7 @@ namespace SS
             {
                 collision.GetComponent<Health>().HealthChange(health);
                 SoundManager.Instance.PlayAudioAtLocation(4, transform.position);
-                Destroy(gameObject);
+                SpawningManager.instance.Respawn(gameObject);
             }
         }
     }
