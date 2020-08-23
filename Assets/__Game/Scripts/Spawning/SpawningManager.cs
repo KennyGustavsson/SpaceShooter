@@ -17,8 +17,13 @@ namespace SS
         public int amountToSpawn;
         public GameObject enemyPrefab;
 
+        [Header("Health Pickups")]
+        public int amountHealthToSpawn;
+        public GameObject healthPickupPrefab;
+
         private Transform _player;
         private GameObject[] _enemies;
+        private GameObject[] _healthPickups;
         private bool _checkingDistance = true;
 
         private void Awake()
@@ -62,6 +67,28 @@ namespace SS
                 yield return new WaitForSeconds(Random.Range(0f, 0.5f));
             }
 
+            _healthPickups = new GameObject[amountHealthToSpawn];
+            for(int j = 0; j < amountHealthToSpawn; j++)
+            {
+                GameObject obj = Instantiate(healthPickupPrefab);
+                obj.SetActive(false);
+                obj.transform.SetParent(transform);
+                float distance = Random.Range(minDistance, maxDistance);
+                float angle = Random.Range(-Mathf.PI, Mathf.PI);
+
+                _healthPickups[j] = obj;
+
+                Vector3 spawnPos = _player.position;
+                spawnPos += new Vector3(Mathf.Cos(angle) * distance, Mathf.Sin(angle) * distance);
+                obj.transform.position = spawnPos;
+                obj.SetActive(true);
+
+                var effect = ObjectPool.ObjPool.GetPooledObject(5);
+                effect.SetActive(false);
+                effect.transform.position = spawnPos;
+                effect.SetActive(true);
+            }
+
             _checkingDistance = false;
         }
 
@@ -79,6 +106,15 @@ namespace SS
                 if (Vector3.Distance(_player.position, _enemies[i].transform.position) > maxDinstanceFromPlayer)
                 {
                     Respawn(_enemies[i]);
+                }
+                yield return new WaitForSeconds(0.5f);
+            }
+
+            for (int i = 0; i < _healthPickups.Length; i++)
+            {
+                if (Vector3.Distance(_player.position, _healthPickups[i].transform.position) > maxDinstanceFromPlayer)
+                {
+                    Respawn(_healthPickups[i]);
                 }
                 yield return new WaitForSeconds(0.5f);
             }
