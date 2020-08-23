@@ -122,7 +122,7 @@ MonoBehaviour:
   damageRadius: 5
   rocketSpeed: 50
   rocketAcceleration: 50
-  lifeSpan: 5
+  lifeSpan: 10
 --- !u!58 &7455627927534336808
 CircleCollider2D:
   m_ObjectHideFlags: 0
