@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-#if UNITY_EDITOR 
 [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
 public class ReadOnlyDrawer : PropertyDrawer {
 
