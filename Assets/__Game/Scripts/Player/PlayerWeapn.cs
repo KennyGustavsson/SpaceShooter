@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using UnityEngine.UI;
 
 namespace SS
 {
@@ -20,13 +19,7 @@ namespace SS
         [NonSerialized] public bool primaryFire;
         [NonSerialized] public bool secondaryFire;
 
-        private Rigidbody2D _rb;
         private bool fireCooldown;
-
-        private void Awake()
-        {
-            _rb = GetComponent<Rigidbody2D>();
-        }
 
         private void FixedUpdate()
         {

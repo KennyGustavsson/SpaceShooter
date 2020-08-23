@@ -7,6 +7,7 @@ namespace SS
     public class Health : MonoBehaviour
     {
         public int health = 100;
+        public float collisionGate = 5f;
 
         private Text _healthDisplay;
         private SpriteRenderer _spriteRend;
@@ -31,7 +32,7 @@ namespace SS
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.layer == 10 && gameObject.layer == 8) return;
-            if (collision.relativeVelocity.magnitude > 5) HealthChange(-(int)collision.relativeVelocity.magnitude);
+            if (collision.relativeVelocity.magnitude > collisionGate) HealthChange(-(int)collision.relativeVelocity.magnitude);
         }
 
         public void HealthChange(int value)
@@ -39,6 +40,8 @@ namespace SS
             if (!_initialized) return;
 
             health += value;
+
+            // Check if Dead
             if (health <= 0)
             {
                 var obj = ObjectPool.ObjPool.GetPooledObject(20);
@@ -64,7 +67,11 @@ namespace SS
                     health = 100;
                 }
             }
+
+            // Check if health is over 100
             else if (health > 100) health = 100;
+
+            // Check if taking damage or healing
             else if (value < 0)
             {
                 StartCoroutine(ColorEffect(Color.red));

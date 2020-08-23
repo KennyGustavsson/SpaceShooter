@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   damageRadius: 5
-  hoomingRadius: 20
+  hoomingRadius: 100
   rocketSpeed: 5
   rocketAcceleration: 20
   lifeSpan: 10

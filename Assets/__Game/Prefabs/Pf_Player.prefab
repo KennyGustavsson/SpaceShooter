@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3111096772547371900}
   - component: {fileID: 3111096772547371891}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 3111096773242817559}
   - component: {fileID: 3111096773242817558}
   - component: {fileID: 919164895085186493}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1085,6 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  collisionGate: 5
 --- !u!114 &785923355
 MonoBehaviour:
   m_ObjectHideFlags: 0
