@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public GameObject gameOverScreen;
+    public Text finalScoreText;
     public int score;
 
     private Text _scoreText;
@@ -21,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        finalScoreText.text= $"Score: {score}";
+        gameOverScreen.SetActive(true);
         StartCoroutine(RestartTimer());
     }
 
