@@ -18,8 +18,16 @@ public class InGameMenu : MonoBehaviour, IPointerDownHandler
     public void Pause()
     {
         canvasObj.SetActive(!canvasObj.activeSelf);
-        if (canvasObj.activeSelf) Time.timeScale = 0;
-        else Time.timeScale = 1;
+        if (canvasObj.activeSelf)
+        {
+            Time.timeScale = 0;
+            Cursor.visible = true;
+        }
+        else 
+        {
+            Time.timeScale = 1;
+            Cursor.visible = false;
+        }
     }
 
     public void MainMenu()

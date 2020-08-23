@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
 
         _scoreText = GameObject.Find("ScoreDisplay").GetComponent<Text>();
+        Cursor.visible = false;
     }
 
     public void RestartGame()
