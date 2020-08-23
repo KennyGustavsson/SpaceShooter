@@ -6,33 +6,38 @@ namespace SS
     [RequireComponent(typeof(LineRenderer))]
     public class Raygun : MonoBehaviour
     {
+        public int damage = 20;
         public float length = 100;
 
         private LineRenderer _ln;
-        private Vector3 _rot;
         private bool _initialized;
+        private Rigidbody2D _rb;
 
         private void Awake()
         {
             _ln = GetComponent<LineRenderer>();
             _ln.SetPosition(0, transform.position);
             _ln.SetPosition(1, transform.position);
+            _rb = GetComponent<Rigidbody2D>();
         }
 
         private void OnEnable()
         {
+            _rb.velocity = Vector2.zero;
+
             RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up, transform.up);
             if (hit.collider != null)
             {
                 _ln.SetPosition(0, transform.position);
                 _ln.SetPosition(1, hit.point);
 
-                //Damage thing
+                // Damage
+                if(hit.collider.gameObject.layer == 9) hit.collider.GetComponent<Health>().HealthChange(-damage);
             }
             else
             {
                 _ln.SetPosition(0, transform.position);
-                _ln.SetPosition(1, transform.up * length);
+                _ln.SetPosition(1, transform.position + transform.up * length);
             }
             if(_initialized) SoundManager.Instance.PlayAudioAtLocation(1, transform.position);
             StartCoroutine(timer());

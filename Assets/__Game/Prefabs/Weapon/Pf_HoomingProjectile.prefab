@@ -134,7 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555c6824672868849803938281e888c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 50
+  damageRadius: 5
   hoomingRadius: 20
   rocketSpeed: 5
   rocketAcceleration: 20
-  lifeSpan: 5
+  lifeSpan: 10

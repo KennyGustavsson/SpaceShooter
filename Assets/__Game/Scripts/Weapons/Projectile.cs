@@ -3,7 +3,7 @@
 namespace SS {
     public class Projectile : MonoBehaviour
     {
-        public int damage = 10;
+        public int damage = 20;
         private bool initialized;
 
         private void OnEnable()
@@ -17,13 +17,13 @@ namespace SS {
             initialized = true;
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.layer == 8) return;
+            if (collision.gameObject.layer == 8 || collision.gameObject.layer == 10) return;
 
             if (collision.gameObject.layer == 9)
             {
-                // Damage
+                collision.transform.GetComponent<Health>().HealthChange(-damage);
             }
 
             gameObject.SetActive(false);

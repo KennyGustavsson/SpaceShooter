@@ -10,9 +10,12 @@ namespace SS
 
         private Text _healthDisplay;
         private SpriteRenderer _spriteRend;
+        private bool _initialized = false;
 
         private void Awake()
         {
+            health = 100;
+
             if(gameObject.layer == 8)
             {
                 _healthDisplay = GameObject.Find("HealthDisplay").GetComponent<Text>();
@@ -21,6 +24,8 @@ namespace SS
 
             if(GetComponent<SpriteRenderer>() != null) _spriteRend = GetComponent<SpriteRenderer>();
             else if(GetComponentInChildren<SpriteRenderer>() != null) _spriteRend = GetComponentInChildren<SpriteRenderer>();
+
+            _initialized = true;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -31,6 +36,8 @@ namespace SS
 
         public void HealthChange(int value)
         {
+            if (!_initialized) return;
+
             health += value;
             if (health <= 0)
             {
@@ -45,10 +52,16 @@ namespace SS
                 this.gameObject.SetActive(false);
 
                 health = 0;
-                if(gameObject.layer == 8)
+                if (gameObject.layer == 8)
                 {
                     Debug.Log("GameOver");
                     GameManager.Instance.RestartGame();
+                }
+                else 
+                {
+                    GameManager.Instance.AddScore(10);
+                    SpawningManager.instance.Respawn(gameObject);
+                    health = 100;
                 }
             }
             else if (health > 100) health = 100;

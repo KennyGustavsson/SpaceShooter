@@ -5,6 +5,8 @@ namespace SS {
     [RequireComponent(typeof(Rigidbody2D))]
     public class HoomingMissle : MonoBehaviour
     {
+        public int damage = 50;
+        public float damageRadius = 3f;
         public float hoomingRadius = 20f;
         public float rocketSpeed = 5f;
         public float rocketAcceleration = 20f;
@@ -79,6 +81,21 @@ namespace SS {
         public void Explode()
         {
             _exploded = true;
+
+            // Area of effect Damage
+            Collider2D[] hitColliders;
+            hitColliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), damageRadius);
+           
+            for (int i = 0; i < hitColliders.Length; i++)
+            {
+                // Enemy Layer
+                if (hitColliders[i].gameObject.layer == 9)
+                {
+                    hitColliders[i].GetComponent<Health>().HealthChange(-damage);
+                }
+            }
+
+            // Explosion animation
             var obj = ObjectPool.ObjPool.GetPooledObject(20);
             obj.SetActive(false);
             obj.transform.position = transform.position + transform.up;

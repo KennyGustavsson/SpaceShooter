@@ -1,25 +1,23 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class InGameMenu : MonoBehaviour, IPointerDownHandler
+public class InGameMenu : MonoBehaviour
 {
-    public enum Buttons
-    {
-        none,
-        Continue,
-        MainMenu,
-        Restart
-    }
-    public Buttons select;
-
     public GameObject canvasObj;
 
     public void Pause()
     {
         canvasObj.SetActive(!canvasObj.activeSelf);
-        if (canvasObj.activeSelf) Time.timeScale = 0;
-        else Time.timeScale = 1;
+        if (canvasObj.activeSelf)
+        {
+            Time.timeScale = 0;
+            Cursor.visible = true;
+        }
+        else 
+        {
+            Time.timeScale = 1;
+            Cursor.visible = false;
+        }
     }
 
     public void MainMenu()
@@ -34,21 +32,5 @@ public class InGameMenu : MonoBehaviour, IPointerDownHandler
         Debug.Log("Restart");
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        switch ((int)select)
-        {
-            case 1:
-                Pause();
-                break;
-            case 2:
-                MainMenu();
-                break;
-            case 3:
-                Restart();
-                break;
-        }
     }
 }
