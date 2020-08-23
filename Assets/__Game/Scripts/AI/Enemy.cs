@@ -17,6 +17,11 @@ namespace SS
             _target = GameObject.Find("Player").transform;
         }
 
+        private void OnEnable()
+        {
+            _fireCooldown = false;
+        }
+
         private void FixedUpdate()
         {
             if (Vector3.Distance(_target.position, transform.position) >= 200) return;

@@ -10,6 +10,7 @@ namespace SS
     {
         public static SoundManager Instance;
         public AudioMixerGroup mixer;
+        public int _audioChannels = 5;
 
         [System.Serializable]
         public struct SFX
@@ -20,8 +21,6 @@ namespace SS
         [SerializeField] public SFX[] SFXs;
 
         private Dictionary<int, AudioClip> _audioDic;
-
-        private int _audioChannels = 5;
         private Queue<AudioSource> _sources;      
 
         private void Awake()
