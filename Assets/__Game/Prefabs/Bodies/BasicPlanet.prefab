@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea06b1d454357cd498939968ccdaec51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetMass: 10
+  planetMass: 30
 --- !u!58 &4381063513292946307
 CircleCollider2D:
   m_ObjectHideFlags: 0
