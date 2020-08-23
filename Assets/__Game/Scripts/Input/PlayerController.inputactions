@@ -58,7 +58,7 @@
                 {
                     "name": "1D Axis",
                     "id": "24ad430e-01e6-4e13-abd7-4b13f21a412f",
-                    "path": "1DAxis",
+                    "path": "1DAxis(minValue=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -91,7 +91,7 @@
                 {
                     "name": "1D Axis",
                     "id": "c8839ea5-95ef-4e8b-9a78-7ce1720fd39b",
-                    "path": "1DAxis",
+                    "path": "1DAxis(minValue=0)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -111,7 +111,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "negative",
+                    "name": "positive",
                     "id": "d3a90c01-78ea-4852-b66c-d70ecf3c362a",
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",

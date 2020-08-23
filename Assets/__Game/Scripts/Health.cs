@@ -7,7 +7,7 @@ namespace SS
     public class Health : MonoBehaviour
     {
         public int health = 100;
-        public float collisionGate = 5f;
+        public float collisionThreshold = 5f;
 
         private Text _healthDisplay;
         private SpriteRenderer _spriteRend;
@@ -32,7 +32,7 @@ namespace SS
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.layer == 10 && gameObject.layer == 8) return;
-            if (collision.relativeVelocity.magnitude > collisionGate) HealthChange(-(int)collision.relativeVelocity.magnitude);
+            if (collision.relativeVelocity.magnitude > collisionThreshold) HealthChange(-(int)collision.relativeVelocity.magnitude);
         }
 
         public void HealthChange(int value)
@@ -64,6 +64,7 @@ namespace SS
                 {
                     GameManager.Instance.AddScore(10);
                     SpawningManager.instance.Respawn(gameObject);
+                    _spriteRend.color = Color.white;
                     health = 100;
                 }
             }

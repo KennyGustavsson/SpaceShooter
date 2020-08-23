@@ -25,21 +25,19 @@ namespace SS
         {
             _rb.velocity = Vector2.zero;
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up, transform.up);
-            if (hit.collider != null)
+            RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position + transform.up, transform.up, length);
+            if (hit.Length > 0)
             {
-                _ln.SetPosition(0, transform.position);
-                _ln.SetPosition(1, hit.point);
+                for(int i = 0; i < hit.Length; i++)
+                {
+                    if(hit[i].transform.gameObject.layer == 9) hit[i].collider.GetComponent<Health>().HealthChange(-damage);
+                }
+            }
 
-                // Damage
-                if(hit.collider.gameObject.layer == 9) hit.collider.GetComponent<Health>().HealthChange(-damage);
-            }
-            else
-            {
-                _ln.SetPosition(0, transform.position);
-                _ln.SetPosition(1, transform.position + transform.up * length);
-            }
-            if(_initialized) SoundManager.Instance.PlayAudioAtLocation(1, transform.position);
+            _ln.SetPosition(0, transform.position);
+            _ln.SetPosition(1, transform.position + transform.up * length);
+
+            if (_initialized) SoundManager.Instance.PlayAudioAtLocation(1, transform.position);
             StartCoroutine(timer());
         }
 
