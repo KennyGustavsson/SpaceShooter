@@ -71,7 +71,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 {
                     ""name"": ""1D Axis"",
                     ""id"": ""24ad430e-01e6-4e13-abd7-4b13f21a412f"",
-                    ""path"": ""1DAxis(minValue=1)"",
+                    ""path"": ""1DAxis(minValue=0)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
